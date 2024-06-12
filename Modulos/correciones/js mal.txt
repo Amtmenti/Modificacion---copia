@@ -1,0 +1,42 @@
+var input_periodo_inicio;
+
+$(function () {
+    input_periodo_inicio = $('input[name="periodo_inicio"]');
+
+    input_periodo_inicio.datetimepicker({
+        useCurrent: false,
+        format: 'YYYY-MM-DD',
+        locale: 'es',
+        keepOpen: false,
+        maxDate: new Date()
+    });
+
+var input_periodo_fin;
+
+$(function () {
+    input_periodo_fin = $('input[name="periodo_fin"]');
+
+    input_periodo_fin.datetimepicker({
+        useCurrent: false,
+        format: 'YYYY-MM-DD',
+        locale: 'es',
+        keepOpen: false,
+        maxDate: new Date()
+    });
+
+    $('.select2').select2({
+        language: 'es',
+        theme: 'bootstrap4'
+    });
+
+    $('input[name="nombre"]')
+        .on('keypress', function (e) {
+            return validate_text_box({'event': e, 'type': 'letters'});
+        });
+
+    $('input[name="telefono"]')
+        .on('keypress', function (e) {
+            return validate_text_box({'event': e, 'type': 'numbers'});
+        });
+    });
+});
